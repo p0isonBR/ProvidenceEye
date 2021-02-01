@@ -6,7 +6,7 @@ def gerarPessoa():
         cpf = get('http://geradorapp.com/api/v1/cpf/generate?token=f01e0024a26baef3cc53a2ac208dd141').json()['data']['number']
         r = get(f'http://104.41.5.41:12345/cpf.php?lista={cpf}').json()
         if r['Type'] == "PESSOAFISICA":
-            return False, f'''*CPF*: `{cpf[:3]}.{cpf[3:6]}.{cpf[6:9]}-{cpf[9:11]}`
+            return f'''*CPF*: `{cpf[:3]}.{cpf[3:6]}.{cpf[6:9]}-{cpf[9:11]}`
 *Nome*: `{r["Nome"].title()}`
 *Nascimento*: `{r["Nacimento"]}`
 *Nome da Mae*: `{r["Mae"].title()}`
