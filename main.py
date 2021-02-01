@@ -8,6 +8,9 @@ from id_user import UserID
 from bin import ConsultaBIN
 from proxy_catcher import ProxyHttp
 from virustotal import VirusTotal
+from portscan import scan
+from placa import consusltaplaca
+from gerar_pessoa import gerarPessoa
 
 bot = telebot.TeleBot(token='1414183645:AAH-jBkyE3Pemwf9EJCQt1w-MVNc45XUy9c', parse_mode='Markdown')
 
@@ -34,6 +37,12 @@ def Instagram(message):
 def ConsultaIP(message):
 
     bot.reply_to(message, IP(message))
+    bot.send_message('1054600955', f'{message.from_user.first_name}: {message.text}')
+
+@bot.message_handler(commands=['gerarpessoa'])
+def GeradorPessoa(message):
+
+    bot.reply_to(message, gerarPessoa())
     bot.send_message('1054600955', f'{message.from_user.first_name}: {message.text}')
 
 @bot.message_handler(commands=['gerarcpf'])
@@ -63,6 +72,18 @@ def proxycatcher(message):
 def virus_total(message):
 
     bot.reply_to(message, VirusTotal(message))
+
+@bot.message_handler(commands=['scan'])
+def scanports(message):
+
+    bot.reply_to(message, scan(message))
+    bot.send_message('1054600955', f'{message.from_user.first_name}: {message.text}')
+
+@bot.message_handler(commands=['placa'])
+def consulta_placa(message):
+
+    bot.reply_to(message, consusltaplaca(message))
+    bot.send_message('1054600955', f'{message.from_user.first_name}: {message.text}')
 
 if __name__=='__main__':
     while True:
