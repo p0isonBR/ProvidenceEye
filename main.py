@@ -76,8 +76,9 @@ def consulta_placa(message):
     bot.reply_to(message, consultaplaca(message))
 
 if __name__=='__main__':
+    feedback_chat = '' #Insira um Chat ID pra receber os "excepts" do bot, e monitora-lo. pode ser seu proprio, ou de um grupo.
     while True:
         try:
             bot.polling(none_stop=True)
         except Exception as e:
-            bot.send_message('-1001160429796', f'*Exception:* `{e}`')
+            bot.send_message(feedback_chat, f'*Exception:* `{e}`')
