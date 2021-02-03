@@ -1,7 +1,7 @@
 # <p align="center">ProvidenceEye [BOT]
 
 <p align="center">
-<img src="https://i.ibb.co/7K0kHT8/transparent.png">
+<img src="https://i.ibb.co/JFNJtjX/eye-providence.png">
 </p>
 <p align="center">Bot colaborativo, multifuncional para o Telegram. <a href="https://t.me/ProvidenceEye_Bot">Confira-o aqui</a>.
 
