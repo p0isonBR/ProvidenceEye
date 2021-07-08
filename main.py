@@ -10,7 +10,6 @@ from proxy_catcher import ProxyHttp
 from virustotal import VirusTotal
 from portscan import scan
 from placa import consultaplaca
-from gerar_pessoa import gerarPessoa
 
 bot = telebot.TeleBot(token='', parse_mode='Markdown')
 
@@ -34,11 +33,6 @@ def Instagram(message):
 @bot.message_handler(commands=['ip'])
 def ConsultaIP(message):
     bot.reply_to(message, IP(message))
-
-
-@bot.message_handler(commands=['gerarpessoa'])
-def GeradorPessoa(message):
-    bot.reply_to(message, gerarPessoa())
 
 
 @bot.message_handler(commands=['gerarcpf'])
