@@ -1,13 +1,15 @@
 from requests import get
 import re
 
-def ConsultaCPF(message):
 
+def ConsultaCPF(message):
     cpf = message.text[8:].replace('-', '').replace('.', '')
     if len(cpf) != 11:
         return '`Documento invalido`'
+
     elif message.text == '/cpfull@ProvidenceEye_Bot':
         return '`Insira o CPF apos o comando!`'
+
     else:
         r = get(f'http://165.227.127.60:5000/cpf/{cpf}').json()
         if r["status"]:
@@ -17,5 +19,6 @@ def ConsultaCPF(message):
 *Nascimento*: `{r["result"]["data_nascimento"]}`
 *Situacao Cadastral*: `{r["result"]["situacao_cadastral"].title()}`
 ''')
+
         else:
             return '`Documento nao encontrado!`'
