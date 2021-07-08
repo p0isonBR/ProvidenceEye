@@ -9,18 +9,13 @@ def ConsultaCPF(message):
     elif message.text == '/cpfull@ProvidenceEye_Bot':
         return '`Insira o CPF apos o comando!`'
     else:
-        r = get(f'http://191.235.103.105/cpf/api.php?lista={cpf}').text
-        if "PESSOAFISICA" in r:
+        r = get(f'http://165.227.127.60:5000/cpf/{cpf}').json()
+        if r["status"]:
             return f'''
-*CPF*: `{re.search('NRCPF="(.*?)"', r).group(1)}`
-*Nome*: `{re.search('NOPESSOAFISICA="(.*?)"', r).group(1).title()}`
-*Nascimento*: `{re.search('DTNASCIMENTO="(.*?)"', r).group(1)}`
-*Nome da Mae*: `{re.search('NOMAE="(.*?)"', r).group(1).title()}`
-*Endereco*: `{re.search('NOLOGRADOURO="(.*?)"', r).group(1).title()}, {re.search('NRLOGRADOURO="(.*?)"', r).group(1)}`
-*Complemento*: `{re.search('DSCOMPLEMENTO="(.*?)"', r).group(1).title()}`
-*Bairro*: `{re.search('NOBAIRRO="(.*?)"', r).group(1).title()}`
-*Cidade*: `{re.search('NOMUNICIPIO="(.*?)"', r).group(1).title()}-{re.search('SGUF="(.*?)"', r).group(1)}`
-*CEP*: `{re.search('NRCEP="(.*?)"', r).group(1)}`
+*CPF*: `{cpf}`
+*Nome*: `{r["result"]["nome_da_pf"].title()}`
+*Nascimento*: `{r["result"]["data_nascimento"]}`
+*Situacao Cadastral*: `{r["result"]["situacao_cadastral"].title()}`
 ''')
         else:
             return '`Documento nao encontrado!`'
