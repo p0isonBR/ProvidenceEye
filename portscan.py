@@ -1,5 +1,6 @@
 import socket
 
+
 def scan(message):
     ip = message.text.replace('https://', '').replace('http://', '').replace('/scan ', '')
 
