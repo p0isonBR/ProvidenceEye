@@ -1,7 +1,6 @@
 import socket
 
 def scan(message):
-
     ip = message.text.replace('https://', '').replace('http://', '').replace('/scan ', '')
 
     portas = {
@@ -27,7 +26,7 @@ def scan(message):
         8080: 'http-proxy'
         }
 
-    texto = ''
+    texto = str()
 
     for key, value in portas.items():
         s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
