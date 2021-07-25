@@ -11,7 +11,7 @@ def ConsultaCPF(message):
         return '`Insira o CPF apos o comando!`'
 
     else:
-        r = get(f'http://165.227.127.60:5000/cpf/{cpf}').json()
+        r = get(f'https://sherlockconsulta.herokuapp.com/cpf/{cpf}').json()
         if r["status"]:
             return f'''
 *CPF*: `{cpf}`
@@ -21,4 +21,4 @@ def ConsultaCPF(message):
 ''')
 
         else:
-            return '`Documento nao encontrado!`'
+            return '`Documento nao encontrado banco de dados ou invalido!`'
