@@ -18,7 +18,7 @@ def ConsultaCPF(message):
 *Nome*: `{r["result"]["nome_da_pf"].title()}`
 *Nascimento*: `{r["result"]["data_nascimento"]}`
 *Situacao Cadastral*: `{r["result"]["situacao_cadastral"].title()}`
-''')
+'''
 
         else:
             return '`Documento nao encontrado banco de dados ou invalido!`'
