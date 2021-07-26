@@ -1,9 +1,10 @@
 from requests import get
+import os
+
 
 def Insta(message):
-    
     user = message.text.replace('/insta', '').replace(' ', '').replace('@', '') 
-    cookies = os.getenv('insta_cookies')  # necessario adicionar cookies para o funcionamento, recomendo criar uma conta apenas para essa finalidade
+    cookies = os.getenv('insta_cookie')  # necessario adicionar cookies para o funcionamento, recomendo criar uma conta apenas para essa finalidade
     h = {
         'Host': 'www.instagram.com',
         'upgrade-insecure-requests': '1',
@@ -36,10 +37,10 @@ def Insta(message):
 *User ID*: `{user_id}`
 *Imagem do perfil: *'''
 
-def instafoto(message):
 
+def instafoto(message):
     user = message.text.replace('/insta', '').replace(' ', '').replace('@', '') 
-    cookies = '' #necessario adicionar cookies para o funcionamento, recomendo criar uma conta apenas para essa finalidade
+    cookies = os.getenv('insta_cookie')  # necessario adicionar cookies para o funcionamento, recomendo criar uma conta apenas para essa finalidade
     h = {
         'Host': 'www.instagram.com',
         'upgrade-insecure-requests': '1',
