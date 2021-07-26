@@ -3,7 +3,7 @@ from requests import get
 def Insta(message):
     
     user = message.text.replace('/insta', '').replace(' ', '').replace('@', '') 
-    cookies = '' #necessario adicionar cookies para o funcionamento, recomendo criar uma conta apenas para essa finalidade
+    cookies = os.getenv('insta_cookies')  # necessario adicionar cookies para o funcionamento, recomendo criar uma conta apenas para essa finalidade
     h = {
         'Host': 'www.instagram.com',
         'upgrade-insecure-requests': '1',
