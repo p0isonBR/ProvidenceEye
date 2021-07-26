@@ -1,4 +1,5 @@
 import telebot
+import os
 from start_menu import menu
 from instagram import Insta, instafoto
 from consulta_ip import IP
@@ -11,7 +12,9 @@ from virustotal import VirusTotal
 from portscan import scan
 from placa import consultaplaca
 
-bot = telebot.TeleBot(token='', parse_mode='Markdown')
+token = os.getenv("token")
+
+bot = telebot.TeleBot(token=token, parse_mode='Markdown')
 
 
 @bot.message_handler(commands=['start'])
