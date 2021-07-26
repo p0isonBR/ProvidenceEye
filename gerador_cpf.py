@@ -1,6 +1,7 @@
 from requests import get
+import os
 
 def GeradorCPF(message):
 
-    cpf = get('http://geradorapp.com/api/v1/cpf/generate?token=f01e0024a26baef3cc53a2ac208dd141').json()['data']['number_formatted']
+    cpf = get('https://gerador.app/api/cpf/generate', headers={"Accept": "application/json", "Authorization": "Bearer " + os.getenv("cpf_token")}).json()['number_formatted']
     return f'*CPF: *`{cpf}`'
