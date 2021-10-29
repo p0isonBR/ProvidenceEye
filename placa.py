@@ -3,7 +3,7 @@ from requests import get
 def consultaplaca(message):
     
 	placa = message.text.replace('/placa ', '').replace('-', '')
-	r = get(f'http://api.masterplaca.devplank.com/v2/placa/{placa}/json').json()
+	r = get(f'http://api.masterplaca.devplank.com/v3/placa/{placa}/json').json()
 	modelo = r["modelo"]
 	marca = r["marca"]
 	ano = r["ano"]
